@@ -5,3 +5,24 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+
+.card-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.card-wrapper {
+  display: inline-block;
+  width: 18rem;
+  margin-right: 1rem;
+}
+
+.card-text-limited {
+  word-wrap: break-word;
+}
+
+.item-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
