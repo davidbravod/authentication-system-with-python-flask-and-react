@@ -11,15 +11,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity, get_jwt
-from flask_jwt_extended import jwt_required
-from flask_jwt_extended import JWTManager
-
-from datetime import date, time, datetime, timezone, timedelta
-
-from flask_bcrypt import Bcrypt
+from api.extensions import bcrypt, jwt
 
 #from models import Person
 
@@ -29,9 +21,9 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 app.config["JWT_SECRET_KEY"] = os.getenv("FLASK_APP_KEY")
-jwt = JWTManager(app)
+jwt.init_app(app)
 
-bcrypt = Bcrypt(app)
+bcrypt.init_app(app)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")

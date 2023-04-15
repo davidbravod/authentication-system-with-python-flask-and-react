@@ -7,18 +7,14 @@ from api.models import db, User, People, Planets, Vehicles, TokenBlockedList
 from api.favoritos import FavoritePeople, FavoritePlanets, FavoriteVehicles
 from api.utils import generate_sitemap, APIException
 
+from api.extensions import jwt, bcrypt
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity, get_jwt
 from flask_jwt_extended import jwt_required
-from flask_jwt_extended import JWTManager
-from flask_bcrypt import Bcrypt
 
 from datetime import date, time, datetime, timezone, timedelta
 
 api = Blueprint('api', __name__)
-
-jwt = JWTManager()
-bcrypt = Bcrypt()
 
 def verificacionToken(jti):
     jti#Identificador del JWT (es más corto)
