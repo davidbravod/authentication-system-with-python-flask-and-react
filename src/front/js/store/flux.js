@@ -60,9 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       ...usuarioActions(getStore, getActions, setStore),
       ...starWarsActions(getStore, getActions, setStore),
       useFetch: async (endpoint, body = "", method = "GET") => {
-        let url =
-          "https://3001-metantonio-reactfinal-rvaoe9c7f3u.ws-us94.gitpod.io/api" +
-          endpoint;
+        let url = `${process.env.BACKEND_URL}/api` + endpoint;
         console.log(url);
         console.log(body);
         let response = await fetch(url, {

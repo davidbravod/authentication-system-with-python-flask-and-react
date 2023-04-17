@@ -368,15 +368,9 @@ export function usuarioActions(getStore, getActions, setStore) {
     initialFetchUsersData: async () => {
       try {
         let store = getStore();
-        let responsePeople = fetch(
-          "https://3001-metantonio-reactfinal-rvaoe9c7f3u.ws-us94.gitpod.io/api/people"
-        );
-        let responseVehicles = fetch(
-          "https://3001-metantonio-reactfinal-rvaoe9c7f3u.ws-us94.gitpod.io/api/vehicles"
-        );
-        let responsePlanets = fetch(
-          "https://3001-metantonio-reactfinal-rvaoe9c7f3u.ws-us94.gitpod.io/api/planets"
-        );
+        let responsePeople = fetch(`${process.env.BACKEND_URL}/api/people`);
+        let responseVehicles = fetch(`${process.env.BACKEND_URL}/api/vehicles`);
+        let responsePlanets = fetch(`${process.env.BACKEND_URL}/api/planets`);
 
         let [respuestaJsonPeople, respuestaJsonVehicles, respuestaJsonPlanets] =
           await Promise.all([
